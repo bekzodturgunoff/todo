@@ -1,0 +1,138 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --primary: #F05936;
+  --pColor: #ACACAC;
+}
+
+.cont{
+  display: flex;
+
+}
+.left-navbar{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 10px;
+  border-right: 2px solid #FDEFEA;
+  width: 200px;
+}
+
+.right-side{
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+
+input{
+  background-color: #FDEFEA;
+  padding: 20px;
+  width: 480px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary);
+  margin-right: 50px;
+  display: flex;
+  border: 0px;
+  outline: none;
+  
+}
+input:focus{
+  background-color: #fff;
+  padding: 20px;
+  width: 480px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--primary);
+  margin-right: 50px;
+  display: flex;
+  border: 0px;
+  outline: none;
+}
+
+
+.add{
+  display: flex;  
+  margin-left: 20px;
+  margin-top: 15px;
+}
+.add-overview{
+font-size: 18px;
+font-family: 'Montserrat', sans-serif;
+color: var(--primary);
+
+}
+
+.btn1{
+  color: #fff;
+  background-color: var(--primary);
+  padding: 10px ;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+  margin-left: 350px;
+  font-family:'Montserrat', sans-serif ;
+}
+.btn1:hover{
+  color: #fff;
+  background-color:#f13b13 ;
+  padding: 10px ;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+  margin-left: 350px;
+  font-family:'Montserrat', sans-serif ;
+}
+.btn2{
+  margin-top: 370px;
+  margin-left: 55px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 1px var(--primary);
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+
+}
+
+.logo{
+  font-size: 22px ;
+  color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.links a {
+text-decoration: none;
+color: var(--pColor);
+border-radius: 5px;
+padding: 5px;
+font-size: 20px;
+width: 100px;
+}
+
+.links a:hover {
+font-size: 20px;
+border-radius: 5px;
+border: 0px solid #FDEFEA;
+color: var(--primary) ;
+background-color: #FDEFEA;
+width: 100px;
+text-decoration: none;
+
+}
+
+.links{
+  margin: 10px;
+}
+
