@@ -6,16 +6,26 @@
 
 const buttonOne = document.querySelector("#btn1")
 const overlay = document.querySelector("#overlay")
-const closeOverlay = document.querySelector("#close-overlay")
-const model = document.querySelector("#model")
+const addTodo = document.querySelector("#add-todo")
+const listTodo = document.querySelector("#list-todo")
+const input = document.querySelector(".input-t")
 
 buttonOne.addEventListener('click', () => {
   overlay.classList.add("open")
-  model.classList.add("open")
-})
 
-closeOverlay.addEventListener("click", () => {
+})
+addTodo.addEventListener("click", () => {
   overlay.classList.remove("open")
-  model.classList.remove("open")
+
 })
 
+addTodo.addEventListener("submit", () => {
+  e.preventDefualt()
+})
+
+const item = document.createElement("div")
+item.innerText = input.value
+item.classList.add("list-item")
+
+
+listTodo.appendChild(item)
