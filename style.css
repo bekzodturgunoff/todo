@@ -277,14 +277,14 @@ display: none;
   #overlay{
     display: none;
     position: absolute;
-    top: 30%;
+    top: 33%;
     left: 33%;
     border: 1px solid black;
     padding: 1rem;
     border-radius: .25rem;
     background-color: #FFF;
-    width: 30%;
-    height: 60%;
+    width: 50%;
+    height: 200px;
   }
   #modal.open {
     display: block;
