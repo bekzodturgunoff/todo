@@ -157,7 +157,7 @@ img{
   border-radius: .25rem;
   background-color: #FFF;
   width: 30%;
-  height: 70%;
+  height: 50%;
 }
 
 #model{
@@ -218,6 +218,7 @@ img{
   color: var(--primary);
   font-family:'Montserrat', sans-serif ;
   margin-top: 20px;
+  padding-bottom: 5px;
   
 
 }
@@ -285,7 +286,7 @@ img{
   border: unset;
   background-color: #f13b13;
   color: #FFF;
-
+  margin-top: 10px;
 }
 
 .list-item{
