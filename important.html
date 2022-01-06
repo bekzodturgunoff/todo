@@ -13,9 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@300&display=swap"
     rel="stylesheet">
-
   <script src="index.js" defer></script>
   <title>simple todo</title>
+
   <style>
     #model.open {
       display: block;
@@ -31,46 +31,56 @@
 <body>
 
   <div id="overlay">
-    <p class="overlay-add-a-todo">Add a todo</p>
-    <input class="input-t" type="text" placeholder="Title" name="Title">
-    <input class="overlay-date" type="date" name="date">
-    <p class="overlay-Priority">Priority</p>
-    <div class="priority">
-      <button class="high-b">High</button>
-      <button class="medium-b">Medium</button>
-      <button class="low-b">Low</button>
-
+    <div class="overlay-div">
+      <p class="overlay-add-a-todo">Add a todo</p>
+      <!-- <form action="submit"> -->
+      <label for="input-t"></label>
+      <input id="input-t" type="text" placeholder="Title" name="Title">
+      <input class="overlay-date" type="date" name="date">
+      <p class="overlay-Priority">Priority</p>
+      <div class="priority">
+        <button class="high-b">High</button>
+        <button class="medium-b">Medium</button>
+        <button class="low-b">Low</button>
+        <!-- </form> -->
+      </div>
+      <div class="add-todo-space">
+        <button type="submit" class="add-todo">Add</button>
+      </div>
     </div>
-    <button id="close-overlay">Close</button>
   </div>
 
 
 
+
+
   <div class="cont">
+
     <div class="left-navbar">
       <div class="logo"><a href="index.html">Todoooo</a>
       </div><br>
       <div class="links">
-
         <div> <a href="index.html">Overview</a><img src="star.png" alt="">
         </div><br>
         <div><a href="today.html">Today</a><img src="star.png" alt="">
         </div><br>
         <div><a href="important.html">Important</a><img src="star.png" alt="">
         </div><br>
-        <div class="btn2-space">
-          <button id="btn2">+</button>
-        </div>
+        <button type="menu" id="btn2">+</button>
       </div>
     </div>
+
     <div class="right-side">
+
       <input class="search" type="search" placeholder="Search...">
+
       <div class="add">
         <div class="add-overview">Important</div>
-        <button id="btn1">Add</button>
+        <button type="menu" id="btn1">Add</button>
       </div>
     </div>
   </div>
+
 </body>
 
 </html>
