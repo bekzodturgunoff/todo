@@ -280,13 +280,13 @@ img{
   border: 1px solid black;
 } */
 .add-todo{ 
-  border-radius: 100%;
+  border-radius: 5%;
   width: 50px;
-  height: 50px;
+  height: 30px;
   border: unset;
   background-color: #f13b13;
   color: #FFF;
-  margin-top: 10px;
+  margin-left: 5px;
 }
 
 .list-item{
@@ -300,6 +300,7 @@ img{
   color: red;
   text-decoration:line-through;
 }
+
 
 @media (max-width: 460px){
   .left-navbar{
@@ -436,13 +437,12 @@ display: none;
 
 
   .add-todo{ 
-    border-radius: 100%;
-    width: 30px;
-    height: 30px;
-    border: unset;
-    background-color: #f13b13;
-    color: #FFF;
-    font-size: 10px;
-    margin-top: 5px;
+    border-radius: 5%;
+  width: 50px;
+  height: 25px;
+  border: unset;
+  background-color: #f13b13;
+  color: #FFF;
+  margin-left: 5px;
   }
 }
