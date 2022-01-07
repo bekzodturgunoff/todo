@@ -33,21 +33,19 @@
   <div id="overlay">
     <div class="overlay-div">
       <p class="overlay-add-a-todo">Add a todo</p>
-      <!-- <form action="submit"> -->
-      <label for="input-t"></label>
-      <input id="input-t" type="text" placeholder="Title" name="Title">
-      <input class="overlay-date" type="date" name="date">
-      <p class="overlay-Priority">Priority</p>
-      <div class="priority">
-        <button class="high-b">High</button>
-        <button class="medium-b">Medium</button>
-        <button class="low-b">Low</button>
-        <!-- </form> -->
-      </div>
-      <div class="add-todo-space">
-        <button type="submit" class="add-todo">Add</button>
-      </div>
+      <form id="form">
+        <label for="input-t"></label>
+        <input id="input-t" type="text" placeholder="Title" name="Title">
+        <input class="overlay-date" type="date" name="date">
+        <p class="overlay-Priority">Priority</p>
+        <div class="priority">
+          <button class="high-b">High</button>
+          <button class="medium-b">Medium</button>
+          <button class="low-b">Low</button>
+          <button type="submit" class="add-todo">Add</button>
+      </form>
     </div>
+  </div>
   </div>
 
 
@@ -78,8 +76,13 @@
         <div class="add-overview">Today</div>
         <button type="menu" id="btn1">Add</button>
       </div>
+      <div id="list">
+
+      </div>
     </div>
+
   </div>
+
 
 </body>
 
