@@ -122,7 +122,6 @@ color: var(--pColor);
 border-radius: 5px;
 padding: 5px;
 font-size: 20px;
-width: 150px;
 transition: 0.2s ease;
 font-family: 'Roboto', sans-serif;
 }
@@ -160,7 +159,7 @@ img{
   height: 50%;
 }
 
-#model{
+#make-blur{
   display: none;
   position: absolute;
   top: 0;
@@ -231,11 +230,11 @@ img{
 .high-b{
   color: var(--pColor);
   transition: 0.2s ease;
-  height: 30px;
-  width: 70px;
+  height: 18px;
+  width: 18px;
   border: 1px solid var(--pColor);
   border-radius: 5px;
-  
+
 }
 .high-b:focus{
   color: #f13b13;
@@ -246,8 +245,8 @@ img{
 .medium-b{
   color: var(--pColor);
   transition: 0.2s ease;
-  height: 30px;
-  width: 70px;
+  height: 18px;
+  width: 18px;
   border: 1px solid var(--pColor);
   border-radius: 5px;
 }
@@ -261,8 +260,8 @@ img{
 .low-b{
   color: var(--pColor);
   transition: 0.2s ease;
-  height: 30px;
-  width: 70px;
+  height: 18px;
+  width: 18px;
   border: 1px solid var(--pColor);
   border-radius: 5px;
 }
@@ -289,16 +288,28 @@ img{
   margin-left: 5px;
 }
 
-.list-item{
-  cursor: pointer;
+#list{
   display: flex;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  
+}
+
+.list-item{
+  cursor: pointer;
+  font-family: 'Comfortaa', cursive;
   margin-top: 20px;
+  border-radius: 5px;
+  width: 50%;
+  background-color: var(--pColor);
+  transition: 0.2s ease;
 }
 .list-item:hover{
-  color: red;
+  color: #FFF;
   text-decoration:line-through;
+  background-color: #f13b13;
 }
 
 
@@ -347,9 +358,9 @@ display: none;
   #overlay{
     display: none;
     position: absolute;
-    top: 33%;
+    top: 40%;
     left: 33%;
-    border: 1px solid black;
+    border: 1px solid var(--pColor);
     padding: 1rem;
     border-radius: .25rem;
     background-color: #FFF;
@@ -388,11 +399,12 @@ display: none;
   .high-b{
     color: var(--pColor);
     transition: 0.2s ease;
-    height: 25px;
-    width: 60px;
+    height: 18px;
+    width: 18px;
     border: 1px solid var(--pColor);
     border-radius: 5px;
     font-size: 12px;
+    
   }
   .high-b:focus{
     color: #f13b13;
@@ -404,8 +416,8 @@ display: none;
   .medium-b{
     color: var(--pColor);
     transition: 0.2s ease;
-    height: 25px;
-    width: 60px;
+    height: 18px;
+    width: 18px;
     border: 1px solid var(--pColor);
     border-radius: 5px;
     font-size: 12px;
@@ -420,8 +432,8 @@ display: none;
   .low-b{
     color: var(--pColor);
     transition: 0.2s ease;
-    height: 25px;
-    width: 60px;
+    height: 18px;
+    width: 18px;
     border: 1px solid var(--pColor);
     border-radius: 5px;
     font-size: 12px;
