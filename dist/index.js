@@ -6,7 +6,7 @@ const root = document.getElementById("root");
 const links = document.querySelectorAll(".links");
 
 let routes = {
-  "/":homePage,
+  "/": homePage,
   "/overview": homePage,
   "/today": todayPage,
   "/important": importantPage,
