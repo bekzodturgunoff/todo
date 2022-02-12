@@ -11,7 +11,6 @@
   display: flex;
 }
 .left-navbar {
-  margin-left: 10px;
   border-right: 2px solid #f8d8cc;
   width: 200px;
 }
@@ -103,9 +102,10 @@
   font-size: 22px;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  display: flex;
   transition: ease 1s;
+  justify-content: center;
+  margin-top: 15px;
 }
 .logo a {
   text-decoration: none;
@@ -132,7 +132,10 @@
 }
 
 .links {
-  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  gap: 10px;
 }
 
 img {
@@ -311,4 +314,38 @@ form {
 .important-checkbox {
   width: 20px;
   height: 20px;
+}
+
+@media (max-width: 470px) {
+  img {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+  .img-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    margin-top: 30px;
+  }
+  .logo {
+    font-size: 10px;
+  }
+
+  #btn2 {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  .links a {
+    display: none;
+  }
+  .left-navbar {
+    width: 50px;
+  }
 }

@@ -5,7 +5,7 @@ import { importantPage } from "../src/important.js";
 const root = document.getElementById("root");
 const links = document.querySelectorAll(".links");
 const logoLink = document.querySelector(".logo");
-
+const imgLinks = document.querySelectorAll(".img-links");
 let routes = {
   "/": homePage,
   "/overview": homePage,
@@ -15,6 +15,7 @@ let routes = {
 
 links.forEach((link) => link.addEventListener("click", changeRoute));
 logoLink.addEventListener("click", changeRoute);
+imgLinks.forEach((img) => img.addEventListener("click", changeRoute));
 
 function changeRoute(e) {
   e.preventDefault();
