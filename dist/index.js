@@ -4,6 +4,7 @@ import { importantPage } from "../src/important.js";
 
 const root = document.getElementById("root");
 const links = document.querySelectorAll(".links");
+const logoLink = document.querySelector(".logo");
 
 let routes = {
   "/": homePage,
@@ -13,6 +14,7 @@ let routes = {
 };
 
 links.forEach((link) => link.addEventListener("click", changeRoute));
+logoLink.addEventListener("click", changeRoute);
 
 function changeRoute(e) {
   e.preventDefault();
@@ -22,48 +24,50 @@ function changeRoute(e) {
   if (render) render(root);
   return false;
 }
+export function renderForm() {
+  const buttonOne = document.querySelector("#btn1");
+  const buttonTwo = document.querySelector("#btn2");
+  const overlay = document.querySelector("#overlay");
+  const addTodo = document.querySelector(".add-todo");
+  const makeBlur = document.querySelector("#make-blur");
 
-///////////////////////////////////////////
-const buttonOne = document.querySelector("#btn1");
-const buttonTwo = document.querySelector("#btn2");
-const overlay = document.querySelector("#overlay");
-const addTodo = document.querySelector(".add-todo");
-const makeBlur = document.querySelector("#make-blur");
+  const form = document.querySelector("#form");
+  const list = document.querySelector("#list");
+  const input = document.querySelector("#input-t");
+  const inputDate = document.querySelector(".overlay-date");
 
-const form = document.querySelector("#form");
-const list = document.querySelector("#list");
-const input = document.querySelector("#input-t");
+  const highP = (document.querySelector(".high-b").checked = "false");
+  const mediumP = (document.querySelector(".medium-b").checked = "false");
+  const lowP = (document.querySelector(".low-b").checked = "false");
 
-const highP = (document.querySelector(".high-b").checked = "false");
-const mediumP = (document.querySelector(".medium-b").checked = "false");
-const lowP = (document.querySelector(".low-b").checked = "false");
-
-buttonOne.addEventListener("click", () => {
-  overlay.classList.add("open");
-});
-
-buttonTwo.addEventListener("click", () => {
-  overlay.classList.add("open");
-});
-addTodo.addEventListener("click", () => {
-  overlay.classList.remove("open");
-});
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const item = document.createElement("div");
-  // const date = document.querySelector(".overlay-date")
-  item.innerText = input.value;
-  // date.innerText = input.value
-  item.classList.add("list-item");
-  // date.classList.add("list-item")
-  list.appendChild(item);
-  // list.appendChild(date)
-  input.value = "";
-
-  item.addEventListener("click", () => {
-    item.remove();
+  buttonOne.addEventListener("click", () => {
+    overlay.classList.add("open");
   });
-});
+
+  buttonTwo.addEventListener("click", () => {
+    overlay.classList.add("open");
+  });
+  addTodo.addEventListener("click", () => {
+    overlay.classList.remove("open");
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const listItem = document.createElement("div");
+    const inputValue = document.createElement("div");
+    const dateValue = document.createElement("div");
+    listItem.classList.add("list-item");
+    inputValue.textContent = input.value;
+    dateValue.textContent = inputDate.value;
+    inputDate.value = "";
+    input.value = "";
+    listItem.append(inputValue, dateValue);
+    list.append(listItem);
+    listItem.addEventListener("click", () => {
+      listItem.remove();
+    });
+  });
+}
+renderForm();
 
 homePage();

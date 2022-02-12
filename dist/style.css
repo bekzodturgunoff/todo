@@ -267,19 +267,14 @@ form {
   border-radius: 5px;
   border: 0px;
 }
-/* .add-todo-space{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-  } */
+
 .add-todo {
   margin-top: 10px;
   border-radius: 5%;
   width: 50px;
   height: 30px;
   border: none;
-  background-color: #f13b13;
+  background-color: var(--primary);
   color: #fff;
 }
 
@@ -289,19 +284,31 @@ form {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  padding: 20px;
+  /* cursor: pointer;
+  font-family: "Comfortaa", cursive;
+  background-color: #f8d8cc;
+  color: var(--primary);
+  transition: 0.2s ease; */
 }
 
 .list-item {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
   cursor: pointer;
   font-family: "Comfortaa", cursive;
-  margin-top: 20px;
-  border-radius: 5px;
-  width: 50%;
-  background-color: var(--pColor);
+  background-color: #f8d8cc;
+  color: var(--primary);
   transition: 0.2s ease;
+  margin: 5px;
+  min-width: 250px;
+  padding: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 .list-item:hover {
-  color: #fff;
   text-decoration: line-through;
   background-color: #f13b13;
+  color: #fff;
 }
