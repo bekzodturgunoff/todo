@@ -37,9 +37,9 @@ export function renderForm() {
   const input = document.querySelector("#input-t");
   const inputDate = document.querySelector(".overlay-date");
 
-  const highP = (document.querySelector(".high-b").checked = "false");
-  const mediumP = (document.querySelector(".medium-b").checked = "false");
-  const lowP = (document.querySelector(".low-b").checked = "false");
+  // const highP = (document.querySelector(".high-b").checked = "false");
+  // const mediumP = (document.querySelector(".medium-b").checked = "false");
+  // const lowP = (document.querySelector(".low-b").checked = "false");
 
   buttonOne.addEventListener("click", () => {
     overlay.classList.add("open");
@@ -48,12 +48,8 @@ export function renderForm() {
   buttonTwo.addEventListener("click", () => {
     overlay.classList.add("open");
   });
-  addTodo.addEventListener("click", () => {
-    overlay.classList.remove("open");
-  });
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  addTodo.addEventListener("click", () => {
     const listItem = document.createElement("div");
     const inputValue = document.createElement("div");
     const dateValue = document.createElement("div");
@@ -67,11 +63,17 @@ export function renderForm() {
     input.value = "";
     listItem.append(inputValue, dateValue, inputImportant);
     list.append(listItem);
+    overlay.classList.remove("open");
+
     listItem.addEventListener("click", () => {
-      // listItem.remove();
+      listItem.remove();
     });
   });
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem("textinput", inputValue.textContent);
+    localStorage.setItem("datainput", inputDate.textContent);
+  };
 }
 renderForm();
-
 homePage();
