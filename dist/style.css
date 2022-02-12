@@ -285,11 +285,6 @@ form {
   flex-direction: column;
   text-align: center;
   padding: 20px;
-  /* cursor: pointer;
-  font-family: "Comfortaa", cursive;
-  background-color: #f8d8cc;
-  color: var(--primary);
-  transition: 0.2s ease; */
 }
 
 .list-item {
@@ -311,4 +306,9 @@ form {
   text-decoration: line-through;
   background-color: #f13b13;
   color: #fff;
+}
+
+.important-checkbox {
+  width: 20px;
+  height: 20px;
 }

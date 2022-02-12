@@ -56,15 +56,18 @@ export function renderForm() {
     const listItem = document.createElement("div");
     const inputValue = document.createElement("div");
     const dateValue = document.createElement("div");
+    const inputImportant = document.createElement("input");
+    inputImportant.classList.add("important-checkbox");
+    inputImportant.type = "checkbox";
     listItem.classList.add("list-item");
     inputValue.textContent = input.value;
     dateValue.textContent = inputDate.value;
     inputDate.value = "";
     input.value = "";
-    listItem.append(inputValue, dateValue);
+    listItem.append(inputValue, dateValue, inputImportant);
     list.append(listItem);
     listItem.addEventListener("click", () => {
-      listItem.remove();
+      // listItem.remove();
     });
   });
 }
