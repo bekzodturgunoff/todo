@@ -7,6 +7,9 @@
   --primary: #f05936;
   --pColor: #acacac;
   --primarySecond: #f8d8cc;
+  --primaryFont: "Montserrat", sans-serif;
+  --secondFont: "Roboto", sans-serif;
+  --thirdFont: "Comfortaa", cursive;
 }
 .container {
   display: flex;
@@ -17,8 +20,6 @@
 }
 
 .right-side {
-  display: flex;
-  flex-direction: column;
   width: 100%;
 }
 
@@ -27,21 +28,13 @@
   background-color: #f8d8cc;
   padding: 20px;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFont);
   color: var(--primary);
-  margin-right: 50px;
-  border: 0px;
-  outline: none;
   width: 100%;
+  border: none;
 }
 .search:focus {
   background-color: #fff;
-  padding: 20px;
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  color: var(--primary);
-  margin-right: 50px;
-  border: 0px;
   outline: none;
 }
 ::placeholder {
@@ -49,47 +42,35 @@
 }
 
 .add {
-  margin: 5px;
-  margin-left: 20px;
-  margin-right: 10px;
   display: flex;
   justify-content: space-between;
+  margin: 20px;
   align-items: center;
 }
 .add-overview {
   font-size: 18px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFont);
   color: var(--primary);
 }
 
 #btn1 {
   color: #fff;
   background-color: var(--primary);
-  padding: 10px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 15px;
   border-radius: 10px;
-  border: 1px solid var(--primary);
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFont);
+  border: none;
 }
 #btn1:hover {
-  color: #fff;
   background-color: #f13b13;
-  padding: 10px;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-radius: 10px;
-  border: 1px solid var(--primary);
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
 }
 #btn2 {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: 710px;
-  margin-bottom: 30px;
+  margin-top: 700px;
+  margin-bottom: 40px;
   width: 50px;
   height: 50px;
   border-radius: 100%;
@@ -102,7 +83,7 @@
 
 .logo {
   font-size: 22px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFont);
   cursor: pointer;
   display: flex;
   transition: ease 1s;
@@ -113,6 +94,12 @@
   text-decoration: none;
   color: var(--primary);
 }
+.links {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  gap: 8px;
+}
 
 .links a {
   text-decoration: none;
@@ -121,21 +108,16 @@
   padding: 5px;
   font-size: 20px;
   transition: 0.2s ease;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--secondFont);
 }
 
 .links a:hover {
-  border-radius: 5px;
   color: var(--primary);
   background-color: #f8d8cc;
-  text-decoration: none;
 }
-
-.links {
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
-  gap: 10px;
+.links a:focus {
+  color: var(--primary);
+  background-color: #f8d8cc;
 }
 
 img {
@@ -180,17 +162,16 @@ img {
 }
 .overlay-add-a-todo {
   text-align: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--secondFont);
 }
 #input-t {
   background-color: #f8d8cc;
   padding: 10px;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFont);
   color: var(--primary);
-  border: 0px;
-  outline: none;
   width: 80%;
+  border: 1px solid var(--primarySecond);
 }
 #input-t:focus {
   background-color: #fff;
@@ -198,7 +179,7 @@ img {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   color: var(--primary);
-  border: 0px;
+  border: 1px solid var(--primarySecond);
   outline: none;
 }
 
@@ -207,16 +188,16 @@ img {
   background-color: #f8d8cc;
   padding: 10px;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFont);
   color: var(--primary);
-  border: 0px;
-  outline: none;
   width: 80%;
+  border: none;
+  outline: none;
 }
 
-.overlay-Priority {
+#form p {
   color: var(--primary);
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFont);
   margin-top: 20px;
   padding-bottom: 5px;
 }
@@ -285,31 +266,25 @@ img {
 
 #list {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
-  padding: 20px;
-}
-.style {
-  background-color: black;
+  padding: 10px;
 }
 
 #list-item {
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  font-family: "Comfortaa", cursive;
+  font-family: var(--thirdFont);
   background-color: #f8d8cc;
   color: var(--primary);
   transition: 0.2s ease;
   margin: 5px;
-  min-width: 250px;
+  min-width: 300px;
   padding: 20px;
   gap: 20px;
   flex-wrap: wrap;
   align-items: center;
-  align-content: center;
 }
 
 .style-list-item div {
@@ -372,4 +347,16 @@ img {
   .left-navbar {
     width: 50px;
   }
+}
+
+@media (max-width: 360px) {
+  #list-item {
+    min-width: 200px;
+  }
+
+  .todo-del-btn {
+    width: 100px;
+    border: 1px solid var(--pColor);
+  }
+  
 }

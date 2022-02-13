@@ -7,21 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./dist/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@300&display=swap"
-    rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script type="module" src="./dist/index.js" ></script>
   <title>Todoooo</title>
 </head>
-
 <body>
-
   <div id="overlay">
     <div class="overlay-div">
       <p class="overlay-add-a-todo">Add a todo</p>
@@ -29,13 +20,11 @@
         <label for="input-t"></label>
         <input id="input-t" type="text" class="input" placeholder=" Title" name="title">
         <input id="overlay-date" type="date" class="input" name="added_date">
-        <p class="overlay-Priority">Priority</p>
+        <p>Priority</p>
         <div class="priority">
-          
             <button class="high-b">High</button>
             <button class="medium-b">Medium</button>
             <button class="low-b">Low</button>
-            
           </div>
           <div>
             <button type="submit" class="add-todo">Add</button>
@@ -43,34 +32,25 @@
         </div>
     </div>
   </div>
-
   </div>
-
   <div class="container">
-
     <div class="left-navbar">
-      
       <div class="logo"><a href="/">Todoooo</a>
       </div><br>
-
       <div class="links">
-         <a href="/overview">Overview</a>
+        <a href="/overview">Overview</a>
         <a href="/today">Today</a>
         <a href="/important">Important</a>
       </div>
       <div class="img-links">
         <a href="/overview"><img src="./dist/star.png" alt=""></a>
-       <a href="/today"><img src="./dist/star.png" alt=""></a>
-       <a href="/important"><img src="./dist/star.png" alt=""></a>
-       </div>
+        <a href="/today"><img src="./dist/star.png" alt=""></a>
+        <a href="/important"><img src="./dist/star.png" alt=""></a>
+        </div>
       <button type="menu" id="btn2">+</button>
     </div>
-    
-
     <div class="right-side">
-
       <input class="search" type="search" onkeyup="search_item_list()" placeholder="Search...">
-
       <div class="add">
         <div class="add-overview"></div>
         <button type="menu" id="btn1">Add</button>
@@ -79,8 +59,6 @@
       </div>
       <div id="root"></div>
     </div>
-
   </div>
 </body>
-
 </html>
