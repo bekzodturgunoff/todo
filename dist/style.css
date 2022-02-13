@@ -201,7 +201,7 @@ img {
   outline: none;
 }
 
-.overlay-date {
+#overlay-date {
   margin-top: 10px;
   background-color: #f8d8cc;
   padding: 10px;
