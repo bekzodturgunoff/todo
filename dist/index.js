@@ -26,20 +26,15 @@ function changeRoute(e) {
   return false;
 }
 export function renderForm() {
-  const buttonOne = document.querySelector("#btn1");
-  const buttonTwo = document.querySelector("#btn2");
-  const overlay = document.querySelector("#overlay");
+  const buttonOne = document.getElementById("btn1");
+  const buttonTwo = document.getElementById("btn2");
+  const overlay = document.getElementById("overlay");
   const addTodo = document.querySelector(".add-todo");
-  const makeBlur = document.querySelector("#make-blur");
+  const form = document.getElementById("form");
 
-  const form = document.querySelector("#form");
-  const list = document.querySelector("#list");
-  const input = document.querySelector("#input-t");
-  const inputDate = document.querySelector(".overlay-date");
-
-  // const highP = (document.querySelector(".high-b").checked = "false");
-  // const mediumP = (document.querySelector(".medium-b").checked = "false");
-  // const lowP = (document.querySelector(".low-b").checked = "false");
+  const list = document.getElementById("list");
+  const input = document.getElementById("input-t");
+  const inputDate = document.getElementById("overlay-date");
 
   buttonOne.addEventListener("click", () => {
     overlay.classList.add("open");
@@ -49,31 +44,84 @@ export function renderForm() {
     overlay.classList.add("open");
   });
 
-  addTodo.addEventListener("click", () => {
-    const listItem = document.createElement("div");
-    const inputValue = document.createElement("div");
-    const dateValue = document.createElement("div");
-    const inputImportant = document.createElement("input");
-    inputImportant.classList.add("important-checkbox");
-    inputImportant.type = "checkbox";
-    listItem.classList.add("list-item");
-    inputValue.textContent = input.value;
-    dateValue.textContent = inputDate.value;
-    inputDate.value = "";
-    input.value = "";
-    listItem.append(inputValue, dateValue, inputImportant);
-    list.append(listItem);
-    overlay.classList.remove("open");
+  function createElement(tag, attributes) {
+    const element = document.createElement(tag);
+    if (attributes) {
+      Object.entries(attributes).forEach(([key, value]) => {
+        element.setAttribute(key, value);
+      });
+    }
+    return element;
+  }
 
-    listItem.addEventListener("click", () => {
-      listItem.remove();
-    });
+  const todos = [];
+
+  const TODO_KEY = "todos";
+
+  function Todo({ title, added_date }) {
+    this.title = title;
+    this.added_date = added_date;
+  }
+
+  function addTask(task) {
+    todos.push(task);
+    window.localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+    render();
+  }
+
+  function removeTask(index) {
+    todos.splice(index, 1);
+    window.localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+    render();
+  }
+
+  addTodo.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const inputs = document.querySelectorAll(".input");
+    const task = {};
+    for (const input of inputs) {
+      if (input.type === "text") {
+        task[input.name] = input.value;
+      } else if (input.type === "date") {
+        task[input.name] = input.value;
+      }
+    }
+    addTask(new Todo(task));
   });
 
-  const saveToLocalStorage = () => {
-    localStorage.setItem("textinput", inputValue.textContent);
-    localStorage.setItem("datainput", inputDate.textContent);
-  };
+  function render() {
+    list.innerHTML = "";
+
+    todos.forEach((todo, index) => {
+      const listItem = createElement("div", { class: "list-item" });
+      const inputImportant = createElement("div", {
+        class: "important-checkbox",
+      });
+      const inputValue = createElement("div");
+      const dateValue = createElement("div");
+      const labelForImportant = createElement("label");
+      labelForImportant.lable = "important-checkbox";
+
+      listItem.addEventListener("click", () => removeTask(index));
+
+      inputImportant.type = "checkbox";
+      inputValue.textContent = todo.title;
+      dateValue.textContent = todo.added_date;
+
+      listItem.append(inputValue, dateValue, inputImportant);
+      list.append(listItem);
+      overlay.classList.remove("open");
+    });
+  }
+
+  window.addEventListener("load", () => {
+    const list = JSON.parse(window.localStorage.getItem(TODO_KEY));
+    if (list) {
+      list.forEach((task) => todos.push(new Todo(task)));
+      render();
+    }
+  });
 }
+
 renderForm();
 homePage();

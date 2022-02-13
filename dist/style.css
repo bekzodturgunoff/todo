@@ -221,8 +221,9 @@ img {
 }
 .priority {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  text-align: center;
 }
 
 .high-b {
@@ -232,6 +233,7 @@ img {
   height: 30px;
   border: 1px solid var(--pColor);
   border-radius: 5px;
+  cursor: pointer;
 }
 .high-b:focus {
   color: #f13b13;
