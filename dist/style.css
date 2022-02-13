@@ -6,6 +6,7 @@
 :root {
   --primary: #f05936;
   --pColor: #acacac;
+  --primarySecond: #f8d8cc;
 }
 .container {
   display: flex;
@@ -290,12 +291,14 @@ img {
   text-align: center;
   padding: 20px;
 }
+.style {
+  background-color: black;
+}
 
-.list-item {
+#list-item {
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  cursor: pointer;
   font-family: "Comfortaa", cursive;
   background-color: #f8d8cc;
   color: var(--primary);
@@ -305,17 +308,36 @@ img {
   padding: 20px;
   gap: 20px;
   flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
 }
 
-.list-item:hover {
+.style-list-item div {
   text-decoration: line-through;
-  background-color: #f13b13;
+  color: var(--pColor);
+}
+
+.todo-del-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: var(--primarySecond);
+  color: var(--pColor);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: 0.2s ease;
+}
+
+.todo-del-btn:hover {
+  background-color: var(--primary);
   color: #fff;
 }
 
 .important-checkbox {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 @media (max-width: 470px) {

@@ -55,6 +55,7 @@ export function renderForm() {
   }
 
   const todos = [];
+  const importantTodos = [];
 
   const TODO_KEY = "todos";
 
@@ -93,24 +94,39 @@ export function renderForm() {
     list.innerHTML = "";
 
     todos.forEach((todo, index) => {
-      const listItem = createElement("div", { class: "list-item" });
-      const inputImportant = createElement("div", {
+      const listItem = createElement("div", { id: "list-item" });
+      const inputImportant = createElement("input", {
         class: "important-checkbox",
       });
+      const delBtn = createElement("button", { class: "todo-del-btn" });
       const inputValue = createElement("div");
       const dateValue = createElement("div");
-      const labelForImportant = createElement("label");
-      labelForImportant.lable = "important-checkbox";
 
-      listItem.addEventListener("click", () => removeTask(index));
+      delBtn.addEventListener("click", () => removeTask(index));
 
       inputImportant.type = "checkbox";
       inputValue.textContent = todo.title;
       dateValue.textContent = todo.added_date;
+      delBtn.textContent = "X";
 
-      listItem.append(inputValue, dateValue, inputImportant);
+      let d = new Date("2022/02/12");
+      let todaysDate = new Date();
+      if (d.setHours(0, 0, 0, 0) == todaysDate.setHours(0, 0, 0, 0)) {
+      }
+
+      console.log(d === listItem);
+
+      listItem.append(inputImportant, inputValue, dateValue, delBtn);
       list.append(listItem);
       overlay.classList.remove("open");
+
+      inputImportant.addEventListener("change", (e) => {
+        if (e.target.checked) {
+          listItem.classList.add("style-list-item");
+        } else {
+          listItem.classList.remove("style-list-item");
+        }
+      });
     });
   }
 
