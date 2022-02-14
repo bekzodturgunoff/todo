@@ -10,13 +10,14 @@
   --primaryFont: "Montserrat", sans-serif;
   --secondFont: "Roboto", sans-serif;
   --thirdFont: "Comfortaa", cursive;
+  --fourthFont: "Lato", sans-serif;
 }
 .container {
   display: flex;
 }
 .left-navbar {
-  border-right: 2px solid #f8d8cc;
-  width: 200px;
+  border-right: 1px solid #f8d8cc;
+  min-width: 250px;
 }
 
 .right-side {
@@ -82,13 +83,14 @@
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 25px;
   font-family: var(--primaryFont);
   cursor: pointer;
   display: flex;
-  transition: ease 1s;
-  justify-content: center;
-  margin-top: 15px;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: var(--fourthFont);
+  font-weight: 900;
 }
 .logo a {
   text-decoration: none;
@@ -97,25 +99,29 @@
 .links {
   display: flex;
   flex-direction: column;
-  margin: 5px;
-  gap: 8px;
+  margin: 20px;
+  gap: 20px;
+  padding: 10px;
+  width: 200px;
+  list-style-type: none;
 }
 
-.links a {
+.links li {
   text-decoration: none;
   color: var(--pColor);
   border-radius: 5px;
-  padding: 5px;
-  font-size: 20px;
+  padding: 13px;
+  font-size: 18px;
   transition: 0.2s ease;
-  font-family: var(--secondFont);
+  font-family: var(--primaryFont);
+  cursor: pointer;
 }
 
-.links a:hover {
+.links li:hover {
   color: var(--primary);
   background-color: #f8d8cc;
 }
-.links a:focus {
+.links li:focus {
   color: var(--primary);
   background-color: #f8d8cc;
 }
@@ -269,22 +275,27 @@ img {
   align-items: center;
   flex-direction: column;
   padding: 10px;
+  gap: 20px;
 }
 
 #list-item {
   display: flex;
-  justify-content: center;
   border-radius: 5px;
   font-family: var(--thirdFont);
-  background-color: #f8d8cc;
   color: var(--primary);
-  transition: 0.2s ease;
+  transition: 0.3s ease;
   margin: 5px;
-  min-width: 300px;
-  padding: 20px;
+  padding: 30px;
   gap: 20px;
   flex-wrap: wrap;
   align-items: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid #fff;
+  width: 90%;
+}
+
+#list-item:hover {
+  border: 1px solid black;
 }
 
 .style-list-item div {
@@ -296,12 +307,13 @@ img {
   width: 30px;
   height: 30px;
   border: none;
-  background-color: var(--primarySecond);
-  color: var(--pColor);
+  background-color: #f8d8cc;
+  color: #fff;
   cursor: pointer;
   border-radius: 5px;
   font-size: 20px;
   transition: 0.2s ease;
+  margin-left: auto;
 }
 
 .todo-del-btn:hover {
@@ -310,11 +322,34 @@ img {
 }
 
 .important-checkbox {
-  width: 20px;
+  width: 25px;
   height: 20px;
   cursor: pointer;
+  opacity: 0;
 }
 
+.priority input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.priority input[value="high"]:checked + label {
+  background-color: red;
+}
+
+.priority input[value="medium"]:checked + label {
+  background-color: green;
+}
+.priority input[value="low"]:checked + label {
+  background-color: pink;
+}
+
+.important-label {
+  border-radius: 100%;
+  background-color: #fabea8;
+  border: 1px solid rgba(0, 0, 0, 0.452);
+}
 @media (max-width: 470px) {
   img {
     display: block;
@@ -358,5 +393,4 @@ img {
     width: 100px;
     border: 1px solid var(--pColor);
   }
-  
 }

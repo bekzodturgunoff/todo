@@ -8,28 +8,32 @@
   <link rel="stylesheet" href="./dist/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <script type="module" src="./dist/index.js" ></script>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Lato:wght@400;900&family=Montserrat:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+   <script  src="./dist/index.js" defer></script>
   <title>Todoooo</title>
 </head>
 <body>
   <div id="overlay">
     <div class="overlay-div">
       <p class="overlay-add-a-todo">Add a todo</p>
-      <div id="form">
+      <form id="form">
         <label for="input-t"></label>
         <input id="input-t" type="text" class="input" placeholder=" Title" name="title">
         <input id="overlay-date" type="date" class="input" name="added_date">
         <p>Priority</p>
         <div class="priority">
-            <button class="high-b">High</button>
-            <button class="medium-b">Medium</button>
-            <button class="low-b">Low</button>
+          <input id="high" type="radio" value="high" name="priority" class="input" >
+          <label for="high">High</label>
+          <input id="medium" type="radio" value="medium" name="priority" class="input" >
+          <label for="medium">Medium</label>
+          <input id="low" type="radio" value="low" name="priority" class="input" >
+          <label for="low">Low</label>
           </div>
+
           <div>
             <button type="submit" class="add-todo">Add</button>
           </div>
-        </div>
+        </form>
     </div>
   </div>
   </div>
@@ -37,28 +41,30 @@
     <div class="left-navbar">
       <div class="logo"><a href="/">Todoooo</a>
       </div><br>
-      <div class="links">
-        <a href="/overview">Overview</a>
-        <a href="/today">Today</a>
-        <a href="/important">Important</a>
-      </div>
-      <div class="img-links">
-        <a href="/overview"><img src="./dist/star.png" alt=""></a>
-        <a href="/today"><img src="./dist/star.png" alt=""></a>
-        <a href="/important"><img src="./dist/star.png" alt=""></a>
-        </div>
+      <ul class="links">
+        <li class="overview">Overview</li>
+        <li class="today">Today</li>
+        <li class="important">Important</li>
+      </ul>
+      <ul class="img-links">
+        <img src="./dist/star.png" alt="">
+        <img src="./dist/star.png" alt="">
+        <img src="./dist/star.png" alt="">
+        </ul>
       <button type="menu" id="btn2">+</button>
     </div>
     <div class="right-side">
       <input class="search" type="search" onkeyup="search_item_list()" placeholder="Search...">
       <div class="add">
         <div class="add-overview"></div>
-        <button type="menu" id="btn1">Add</button>
+        <button  id="btn1">Add</button>
       </div>
       <div id="list">
+
       </div>
-      <div id="root"></div>
+
     </div>
+
   </div>
 </body>
 </html>
