@@ -8,19 +8,20 @@
   <link rel="stylesheet" href="./dist/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Lato:wght@400;900&family=Montserrat:wght@300;600&family=Roboto:wght@300&display=swap" rel="stylesheet">
-     <script  src="./dist/index.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+   <script  src="./dist/index.js" defer></script>
   <title>Todoooo</title>
 </head>
 <body>
   <div id="overlay"></div>
   <div id="modal">
     <div class="overlay-div">
-      <p class="overlay-add-a-todo">Add a todo</p>
+      <button class="overlay-close-btn">X</button>
+      <p class="overlay-add-a-todo">Add a todo</p> 
       <form id="form">
         <label for="input-t"></label>
-        <input id="input-t" type="text" class="input" placeholder=" Title" name="title">
-        <input id="overlay-date" type="date" class="input" name="added_date">
+        <input id="input-t" type="text" class="input"  name="title" placeholder="Title">
+        <input id="overlay-date" type="date" class="input" name="added_date" >
         <p>Priority</p>
         <div class="priority">
           <input id="high" type="radio" value="high" name="priority" class="input" >
@@ -47,11 +48,6 @@
         <li class="today">Today</li>
         <li class="important">Important</li>
       </ul>
-      <ul class="img-links">
-        <img src="./dist/star.png" alt="">
-        <img src="./dist/star.png" alt="">
-        <img src="./dist/star.png" alt="">
-        </ul>
       <button type="menu" id="btn2">+</button>
     </div>
     <div class="right-side">
@@ -66,6 +62,9 @@
 
     </div>
 
+    
+
   </div>
+  
 </body>
 </html>

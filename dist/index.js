@@ -13,6 +13,32 @@ const list = document.getElementById("list");
 const input = document.getElementById("input-t");
 const inputDate = document.getElementById("overlay-date");
 
+const overviewBtn = document.querySelector(".overview");
+const todayBtn = document.querySelector(".today");
+const importantBtn = document.querySelector(".important");
+const overlayCloseBtn = document.querySelector(".overlay-close-btn");
+
+overlayCloseBtn.addEventListener("click", () => {
+  modal.classList.remove("open");
+  overlay.classList.remove("open");
+});
+
+overviewBtn.addEventListener("click", (e) => {
+  overviewBtn.classList.add("active");
+  todayBtn.classList.remove("active");
+  importantBtn.classList.remove("active");
+});
+todayBtn.addEventListener("click", (e) => {
+  overviewBtn.classList.remove("active");
+  todayBtn.classList.add("active");
+  importantBtn.classList.remove("active");
+});
+importantBtn.addEventListener("click", (e) => {
+  overviewBtn.classList.remove("active");
+  todayBtn.classList.remove("active");
+  importantBtn.classList.add("active");
+});
+
 buttonOne.addEventListener("click", () => {
   modal.classList.add("open");
   overlay.classList.add("open");
@@ -119,3 +145,49 @@ window.addEventListener("load", () => {
     render();
   }
 });
+
+[
+  {
+    id: Math.random().toString(32).slice(2),
+    title: "Overview",
+    todos: [
+      {
+        title: "Hello world!",
+        added_date: "2012-22-2",
+        priority: "high",
+      },
+    ],
+  },
+  {
+    id: Math.random().toString(32).slice(2),
+    title: "Today",
+    todos: [
+      {
+        title: "Hello world!",
+        added_date: "2012-22-2",
+        priority: "high",
+      },
+    ],
+  },
+  {
+    id: Math.random().toString(32).slice(2),
+    title: "Important",
+    todos: [
+      {
+        title: "Hello world!",
+        added_date: "2012-22-2",
+        priority: "high",
+      },
+    ],
+  },
+];
+
+function Project({ title } = {}) {
+  this.title = title;
+  this.id = Math.random().toString(32).slice(2);
+  this.todos = [];
+}
+
+const project = new Project({ title: "Overview" });
+
+console.log(project);
