@@ -75,6 +75,7 @@ form.addEventListener("submit", async (e) => {
   task[priortyInput.name] = priortyInput.value;
 
   addTask(new Todo(task));
+  form.reset();
 });
 
 function render() {
