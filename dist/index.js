@@ -4,6 +4,7 @@ const imgLinks = document.querySelectorAll(".img-links");
 
 const buttonOne = document.getElementById("btn1");
 const buttonTwo = document.getElementById("btn2");
+const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const addTodo = document.querySelector(".add-todo");
 const form = document.getElementById("form");
@@ -13,10 +14,12 @@ const input = document.getElementById("input-t");
 const inputDate = document.getElementById("overlay-date");
 
 buttonOne.addEventListener("click", () => {
+  modal.classList.add("open");
   overlay.classList.add("open");
 });
 
 buttonTwo.addEventListener("click", () => {
+  modal.classList.add("open");
   overlay.classList.add("open");
 });
 
@@ -57,7 +60,6 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const inputs = document.querySelectorAll(".input");
   const priortyInput = form.querySelector(".input:checked");
-  console.log(priortyInput);
   const task = {};
   for (const input of inputs) {
     if (input.type === "text") {
@@ -71,6 +73,7 @@ form.addEventListener("submit", async (e) => {
     }
   }
   task[priortyInput.name] = priortyInput.value;
+
   addTask(new Todo(task));
 });
 
@@ -92,10 +95,10 @@ function render() {
     dateValue.textContent = todo.added_date;
     inputImportant.checked = todo.checkbox;
     delBtn.textContent = "X";
-
     listItem.append(importantLabel, inputValue, dateValue, delBtn);
     list.append(listItem);
     importantLabel.append(inputImportant);
+    modal.classList.remove("open");
     overlay.classList.remove("open");
 
     inputImportant.addEventListener("change", (e) => {

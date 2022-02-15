@@ -17,7 +17,7 @@
 }
 .left-navbar {
   border-right: 1px solid #f8d8cc;
-  min-width: 250px;
+  width: 250px;
 }
 
 .right-side {
@@ -33,6 +33,7 @@
   color: var(--primary);
   width: 100%;
   border: none;
+  font-weight: 600;
 }
 .search:focus {
   background-color: #fff;
@@ -52,6 +53,7 @@
   font-size: 18px;
   font-family: var(--primaryFont);
   color: var(--primary);
+  font-weight: 600;
 }
 
 #btn1 {
@@ -61,6 +63,7 @@
   border-radius: 10px;
   font-family: var(--primaryFont);
   border: none;
+  font-weight: 600;
 }
 #btn1:hover {
   background-color: #f13b13;
@@ -68,10 +71,10 @@
 #btn2 {
   display: flex;
   justify-content: center;
+  position: relative;
+  top: 500px;
   align-items: center;
   margin: auto;
-  margin-top: 700px;
-  margin-bottom: 40px;
   width: 50px;
   height: 50px;
   border-radius: 100%;
@@ -80,6 +83,7 @@
   color: #fff;
   font-size: 30px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .logo {
@@ -115,6 +119,7 @@
   transition: 0.2s ease;
   font-family: var(--primaryFont);
   cursor: pointer;
+  font-weight: 600;
 }
 
 .links li:hover {
@@ -130,15 +135,15 @@ img {
   display: none;
 }
 
-#make-blur.open {
-  display: block;
-}
-
 #overlay.open {
   display: block;
 }
 
-#overlay {
+#modal.open {
+  display: block;
+}
+
+#modal {
   display: none;
   position: absolute;
   top: 50%;
@@ -148,9 +153,10 @@ img {
   padding: 1rem;
   border-radius: 0.25rem;
   background-color: #fff;
+  font-weight: 600;
 }
 
-#make-blur {
+#overlay {
   display: none;
   position: absolute;
   top: 0;
@@ -214,15 +220,6 @@ img {
   text-align: center;
 }
 
-.high-b {
-  color: var(--pColor);
-  transition: 0.2s ease;
-  width: 70px;
-  height: 30px;
-  border: 1px solid var(--pColor);
-  border-radius: 5px;
-  cursor: pointer;
-}
 .high-b:focus {
   color: #f13b13;
   background-color: #f8d8cc;
@@ -238,10 +235,6 @@ img {
   border-radius: 5px;
 }
 .medium-b:focus {
-  color: #fcd30e;
-  background-color: #faefb9;
-  border-radius: 5px;
-  border: 0px;
 }
 
 .low-b {
@@ -254,10 +247,6 @@ img {
 }
 
 .low-b:focus {
-  color: #609d7b;
-  background-color: #94bba5;
-  border-radius: 5px;
-  border: 0px;
 }
 
 .add-todo {
@@ -282,7 +271,7 @@ img {
   display: flex;
   border-radius: 5px;
   font-family: var(--thirdFont);
-  color: var(--primary);
+
   transition: 0.3s ease;
   margin: 5px;
   padding: 30px;
@@ -292,6 +281,7 @@ img {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border: 1px solid #fff;
   width: 90%;
+  font-weight: 600;
 }
 
 #list-item:hover {
@@ -334,21 +324,81 @@ img {
   z-index: -1;
 }
 
+.priority input[value="high"] + label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid var(--pColor);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--pColor);
+  transition: 0.2s ease;
+}
+
+.priority input[value="medium"] + label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid var(--pColor);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--pColor);
+  transition: 0.2s ease;
+}
+.priority input[value="low"] + label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid var(--pColor);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--pColor);
+  transition: 0.2s ease;
+}
+
 .priority input[value="high"]:checked + label {
-  background-color: red;
+  color: #f13b13;
+  background-color: #f8d8cc;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
 }
 
 .priority input[value="medium"]:checked + label {
-  background-color: green;
+  background-color: #faefb9;
+  border-radius: 5px;
+  color: rgb(122, 114, 53);
 }
 .priority input[value="low"]:checked + label {
-  background-color: pink;
+  color: #609d7b;
+  background-color: #94bba5;
+  border-radius: 5px;
 }
 
 .important-label {
   border-radius: 100%;
-  background-color: #fabea8;
   border: 1px solid rgba(0, 0, 0, 0.452);
+}
+
+@media screen and (max-width: 700px) {
+  .left-navbar {
+    width: auto;
+  }
+  .links {
+    width: auto;
+  }
+
+  #list-item {
+    width: 80%;
+  }
 }
 @media (max-width: 470px) {
   img {
@@ -369,6 +419,8 @@ img {
   }
   .logo {
     font-size: 10px;
+    font-weight: 300;
+    padding: 5px;
   }
 
   #btn2 {
@@ -376,7 +428,7 @@ img {
     height: 40px;
     margin-bottom: 20px;
   }
-  .links a {
+  .links li {
     display: none;
   }
   .left-navbar {
@@ -387,6 +439,9 @@ img {
 @media (max-width: 360px) {
   #list-item {
     min-width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
   }
 
   .todo-del-btn {
