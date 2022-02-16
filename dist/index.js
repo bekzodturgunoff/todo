@@ -21,7 +21,7 @@ const overlayCloseBtn = document.querySelector(".overlay-close-btn");
 
 const ul = document.querySelector("ul");
 const projectForm = document.querySelector(".project-form");
-const projectInput = document.getElementById("project-input");
+let projectInput = document.getElementById("project-input");
 
 overlayCloseBtn.addEventListener("click", () => {
   modal.classList.remove("open");
@@ -33,18 +33,18 @@ overviewBtn.addEventListener("click", (e) => {
   todayBtn.classList.remove("active");
   importantBtn.classList.remove("active");
 });
+
 todayBtn.addEventListener("click", (e) => {
   overviewBtn.classList.remove("active");
   todayBtn.classList.add("active");
   importantBtn.classList.remove("active");
 });
+
 importantBtn.addEventListener("click", (e) => {
   overviewBtn.classList.remove("active");
   todayBtn.classList.remove("active");
   importantBtn.classList.add("active");
 });
-
-// Qayerda ekanligimni bildim endi nima qilishim kerak?
 
 links.forEach((link) =>
   link.addEventListener("click", (e) => {
@@ -60,8 +60,6 @@ links.forEach((link) =>
   })
 );
 
-
-/////////////////////////////////////////////////////////
 buttonOne.addEventListener("click", () => {
   modal.classList.add("open");
   overlay.classList.add("open");
@@ -70,10 +68,7 @@ buttonOne.addEventListener("click", () => {
 projectForm.addEventListener("click", (e) => {
   e.preventDefault();
   projectInput.classList.add("active");
-});
-
-buttonTwo.addEventListener("click", (e) => {
-  e.preventDefault();
+  console.log(projectInput);
 });
 
 function createElement(tag, attributes) {
@@ -164,6 +159,7 @@ function render() {
     });
   });
 }
+
 window.addEventListener("load", () => {
   const list = JSON.parse(window.localStorage.getItem(TODO_KEY));
   if (list) {
@@ -214,6 +210,6 @@ function Project({ title } = {}) {
   this.todos = [];
 }
 
-const project = new Project({ title: "Overview" });
+const project = new Project({ title: "Today" });
 
 console.log(project);
