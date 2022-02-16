@@ -228,35 +228,6 @@ img {
   text-align: center;
 }
 
-.high-b:focus {
-  color: #f13b13;
-  background-color: #f8d8cc;
-  border-radius: 5px;
-  border: 0px;
-}
-.medium-b {
-  color: var(--pColor);
-  transition: 0.2s ease;
-  width: 70px;
-  height: 30px;
-  border: 1px solid var(--pColor);
-  border-radius: 5px;
-}
-.medium-b:focus {
-}
-
-.low-b {
-  color: var(--pColor);
-  transition: 0.2s ease;
-  width: 70px;
-  height: 30px;
-  border: 1px solid var(--pColor);
-  border-radius: 5px;
-}
-
-.low-b:focus {
-}
-
 .add-todo {
   margin-top: 10px;
   border-radius: 5%;

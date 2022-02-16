@@ -1,17 +1,11 @@
 const links = document.querySelectorAll(".links");
-const logoLink = document.querySelector(".logo");
-const imgLinks = document.querySelectorAll(".img-links");
 
 const buttonOne = document.getElementById("btn1");
-const buttonTwo = document.getElementById("btn2");
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
-const addTodo = document.querySelector(".add-todo");
 const form = document.getElementById("form");
 
 const list = document.getElementById("list");
-const input = document.getElementById("input-t");
-const inputDate = document.getElementById("overlay-date");
 let titleOfTodo = document.querySelector(".add-overview");
 
 const overviewBtn = document.querySelector(".overview");
@@ -19,7 +13,6 @@ const todayBtn = document.querySelector(".today");
 const importantBtn = document.querySelector(".important");
 const overlayCloseBtn = document.querySelector(".overlay-close-btn");
 
-const ul = document.querySelector("ul");
 const projectForm = document.querySelector(".project-form");
 let projectInput = document.getElementById("project-input");
 
@@ -28,37 +21,15 @@ overlayCloseBtn.addEventListener("click", () => {
   overlay.classList.remove("open");
 });
 
-overviewBtn.addEventListener("click", (e) => {
-  overviewBtn.classList.add("active");
-  todayBtn.classList.remove("active");
-  importantBtn.classList.remove("active");
-});
-
-todayBtn.addEventListener("click", (e) => {
-  overviewBtn.classList.remove("active");
-  todayBtn.classList.add("active");
-  importantBtn.classList.remove("active");
-});
-
-importantBtn.addEventListener("click", (e) => {
-  overviewBtn.classList.remove("active");
-  todayBtn.classList.remove("active");
-  importantBtn.classList.add("active");
-});
-
-links.forEach((link) =>
+links.forEach((link) => {
   link.addEventListener("click", (e) => {
-    e.preventDefault();
-    let linksPath = e.path[0].className;
-    if (linksPath === "overview active") {
-      titleOfTodo.textContent = "Overview";
-    } else if (linksPath === "today active") {
-      titleOfTodo.textContent = "Today";
-    } else if (linksPath === "important active") {
-      titleOfTodo.textContent = "Important";
-    }
-  })
-);
+    [...e.target.parentElement.children].forEach((sib) =>
+      sib.classList.remove("active")
+    );
+    e.target.classList.add("active");
+    console.log(links);
+  });
+});
 
 buttonOne.addEventListener("click", () => {
   modal.classList.add("open");
@@ -82,7 +53,6 @@ function createElement(tag, attributes) {
 }
 
 const todos = [];
-const importantTodos = [];
 const TODO_KEY = "todos";
 
 function Todo({ section, title, added_date, priority }) {
@@ -91,7 +61,6 @@ function Todo({ section, title, added_date, priority }) {
   this.added_date = added_date;
   this.priority = priority;
 }
-
 function addTask(task) {
   todos.push(task);
   window.localStorage.setItem(TODO_KEY, JSON.stringify(todos));
@@ -133,6 +102,7 @@ function render() {
     const inputImportant = createElement("input", {
       class: "important-checkbox",
     });
+
     const importantLabel = document.createElement("label");
     importantLabel.classList.add("important-label");
     const delBtn = createElement("button", { class: "todo-del-btn" });
@@ -168,7 +138,7 @@ window.addEventListener("load", () => {
   }
 });
 
-projectArray = [
+projectsArray = [
   {
     id: Math.random().toString(32).slice(2),
     title: "Overview",
