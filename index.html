@@ -14,7 +14,6 @@
       rel="stylesheet"
     />
 
-    <script src="./dist/index.js" defer></script>
     <title>Todoooo</title>
   </head>
   <body>
@@ -26,46 +25,17 @@
 
         <form id="form">
           <label for="input-t"></label>
-          <input
-            id="input-t"
-            type="text"
-            class="input"
-            name="title"
-            placeholder="Title"
-          />
-          <input
-            id="overlay-date"
-            type="date"
-            class="input"
-            name="added_date"
-          />
+          <input id="input-t" type="text" class="input" name="title" placeholder="Title" />
+          <input id="overlay-date" type="date" class="input" name="added_date" />
 
           <p>Priority</p>
 
           <div class="priority">
-            <input
-              id="high"
-              type="radio"
-              value="high"
-              name="priority"
-              class="input"
-            />
+            <input id="high" type="radio" value="high" name="priority" class="input" />
             <label for="high">High</label>
-            <input
-              id="medium"
-              type="radio"
-              value="medium"
-              name="priority"
-              class="input"
-            />
+            <input id="medium" type="radio" value="medium" name="priority" class="input" />
             <label for="medium">Medium</label>
-            <input
-              id="low"
-              type="radio"
-              value="low"
-              name="priority"
-              class="input"
-            />
+            <input id="low" type="radio" value="low" name="priority" class="input" />
             <label for="low">Low</label>
           </div>
 
@@ -81,10 +51,21 @@
         <div class="logo"><a>Todoooo</a></div>
         <br />
         <ul class="links">
-          <li class="overview">Overview</li>
-          <li class="today">Today</li>
-          <li class="important">Important</li>
         </ul>
+        <form id="pr-form">
+          <label for="project-title">
+            Project
+            <input type="text" id="project-title" name="title"/>
+          </label>
+          <button>Submit</button>
+        </form>
+        <form id="todo-form">
+          <label for="todo-title">
+            Todo
+            <input type="text" id="todo-title" name="title"/>
+          </label>
+          <button>Submit</button>
+        </form>
         <form action="" class="project-form">
           <input
             type="text"
@@ -98,12 +79,14 @@
       </div>
       <div class="right-side">
         <input class="search" type="search" placeholder="Search..." />
-        <div class="add">
-          <div class="add-overview">Overview</div>
+        <div class="add main">
+          <h2 class="main-heading"></h2>
           <button id="btn1">Add</button>
         </div>
-        <div id="list"></div>
+        <div class="todo-list" id="list"></div>
       </div>
     </div>
+
+    <script defer src="./dist/main.js" defer></script>
   </body>
 </html>
