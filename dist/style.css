@@ -394,6 +394,15 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.452);
 }
 
+#project-input {
+  display: none;
+}
+
+#project-input .active {
+  display: block;
+  border: 1px solid black;
+}
+
 @media screen and (max-width: 700px) {
   .left-navbar {
     width: auto;

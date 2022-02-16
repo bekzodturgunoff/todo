@@ -12,11 +12,16 @@ const form = document.getElementById("form");
 const list = document.getElementById("list");
 const input = document.getElementById("input-t");
 const inputDate = document.getElementById("overlay-date");
+let titleOfTodo = document.querySelector(".add-overview");
 
 const overviewBtn = document.querySelector(".overview");
 const todayBtn = document.querySelector(".today");
 const importantBtn = document.querySelector(".important");
 const overlayCloseBtn = document.querySelector(".overlay-close-btn");
+
+const ul = document.querySelector("ul");
+const projectForm = document.querySelector(".project-form");
+const projectInput = document.getElementById("project-input");
 
 overlayCloseBtn.addEventListener("click", () => {
   modal.classList.remove("open");
@@ -39,14 +44,36 @@ importantBtn.addEventListener("click", (e) => {
   importantBtn.classList.add("active");
 });
 
+// Qayerda ekanligimni bildim endi nima qilishim kerak?
+
+links.forEach((link) =>
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    let linksPath = e.path[0].className;
+    if (linksPath === "overview active") {
+      titleOfTodo.textContent = "Overview";
+    } else if (linksPath === "today active") {
+      titleOfTodo.textContent = "Today";
+    } else if (linksPath === "important active") {
+      titleOfTodo.textContent = "Important";
+    }
+  })
+);
+
+
+/////////////////////////////////////////////////////////
 buttonOne.addEventListener("click", () => {
   modal.classList.add("open");
   overlay.classList.add("open");
 });
 
-buttonTwo.addEventListener("click", () => {
-  modal.classList.add("open");
-  overlay.classList.add("open");
+projectForm.addEventListener("click", (e) => {
+  e.preventDefault();
+  projectInput.classList.add("active");
+});
+
+buttonTwo.addEventListener("click", (e) => {
+  e.preventDefault();
 });
 
 function createElement(tag, attributes) {
@@ -85,7 +112,7 @@ function removeTask(index) {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const inputs = document.querySelectorAll(".input");
-  const priortyInput = form.querySelector(".input:checked");
+  const priorityInput = form.querySelector(".input:checked");
   const task = {};
   for (const input of inputs) {
     if (input.type === "text") {
@@ -98,7 +125,7 @@ form.addEventListener("submit", async (e) => {
       task[input.name] = input.value;
     }
   }
-  task[priortyInput.name] = priortyInput.value;
+  task[priorityInput.name] = priorityInput.value;
 
   addTask(new Todo(task));
   form.reset();
@@ -137,7 +164,6 @@ function render() {
     });
   });
 }
-
 window.addEventListener("load", () => {
   const list = JSON.parse(window.localStorage.getItem(TODO_KEY));
   if (list) {
@@ -146,7 +172,7 @@ window.addEventListener("load", () => {
   }
 });
 
-[
+projectArray = [
   {
     id: Math.random().toString(32).slice(2),
     title: "Overview",
