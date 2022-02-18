@@ -63,7 +63,7 @@ html {
   font-weight: 600;
 }
 
-#btn1 {
+#addTodoBtn {
   color: #fff;
   background-color: var(--primary);
   padding: 15px;
@@ -72,13 +72,13 @@ html {
   font-weight: 600;
   cursor: pointer;
 }
-#btn1:hover {
+#addTodoBtn:hover {
   background-color: #f13b13;
 }
 .project-form {
   margin: auto;
 }
-#btn2 {
+#project-btn {
   background: var(--primary);
   outline: none;
   border: none;
@@ -89,6 +89,30 @@ html {
   height: 50px;
   font-size: 24px;
   cursor: pointer;
+  margin: auto;
+}
+
+#project-form {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#project-form input {
+  background-color: #f8d8cc;
+  padding: 5px;
+  font-size: 16px;
+  color: var(--primary);
+  border: 1px solid var(--primarySecond);
+  width: 80%;
+}
+#project-form label {
+  display: flex;
+  justify-content: center;
+}
+
+#project-form.open {
+  display: flex;
 }
 
 .logo {
@@ -168,7 +192,7 @@ img {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-#form {
+#todo-form {
   display: flex;
   flex-direction: column;
   align-items: center;
