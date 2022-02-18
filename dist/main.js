@@ -17,8 +17,10 @@ function Projects() {
 }
 
 Projects.prototype.addProject = function (project) {
-  this.projects.push(new Project(project));
-  //   window.localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify({ projects: this.projects }));
+  const newProject = new Project(project);
+  this.projects.push(newProject);
+  window.localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify({ projects: this.projects }));
+  return newProject;
 };
 
 Projects.prototype.removeProject = function (id) {
@@ -30,29 +32,46 @@ Projects.prototype.getProjects = function () {
   return this.projects;
 };
 
-Projects.prototype.getSelected = function () {
-  return this.selected;
+Projects.prototype.saveProjects = function () {
+  window.localStorage.setItem(
+    PROJECTS_STORAGE_KEY,
+    JSON.stringify({
+      projects: projects
+        .getProjects()
+        .map((project) => (project.id === this.selected.id ? this.selected : project)),
+    })
+  );
 };
 
-Projects.prototype.select = function (project) {
-  this.selected = project;
-  window.localStorage.setItem(SELECTED_PROJECT_KEY, JSON.stringify(this.selected));
+Projects.prototype.getSelected = function () {
+  return this.projects.find((project) => project.id === projects.selected);
+};
+
+Projects.prototype.select = function (id) {
+  this.selected = id;
+  window.localStorage.setItem(SELECTED_PROJECT_KEY, id);
+};
+
+Projects.prototype.first = function () {
+  return this.projects[0];
 };
 
 const projects = new Projects();
 
-function Project({ title }) {
+function Project({ title, id = Math.random().toString(32).slice(2), todos = [] }) {
   this.title = title;
-  this.id = Math.random().toString(32).slice(2);
-  this.todos = [];
+  this.id = id;
+  this.todos = todos;
 }
 
 Project.prototype.addTodo = function (todo) {
   this.todos.push(todo);
+  projects.saveProjects();
 };
 
 Project.prototype.removeTodo = function (id) {
   this.todos = this.todos.filter((todo) => todo.id !== id);
+  projects.saveProjects();
 };
 
 function Todo({ title, added_date, priority }) {
@@ -95,7 +114,7 @@ function renderLinks() {
     item.addEventListener("click", (e) => {
       removeClassFromSiblings(e.target.parentElement);
       e.target.classList.add("active");
-      projects.select(project);
+      projects.select(project.id);
       renderMain();
     });
 
@@ -120,19 +139,27 @@ function removeClassFromSiblings(parent, className = "active") {
   [...parent.children].forEach((child) => child.classList.remove(className));
 }
 
-window.addEventListener("load", () => {
+function init() {
   const existing = window.localStorage.getItem(PROJECTS_STORAGE_KEY);
   const selected = window.localStorage.getItem(SELECTED_PROJECT_KEY);
-  if (existing) {
-    const savedProjects = JSON.parse(existing).projects;
-    savedProjects.forEach((project) => projects.addProject(project));
-  } else {
+  if (existing == null) {
     window.localStorage.setItem(
       PROJECTS_STORAGE_KEY,
-      JSON.stringify({ projects: DEFAULT_PROJECTS.map((title) => new Project({ title })) })
+      JSON.stringify({ projects: DEFAULT_PROJECTS.map((title) => projects.addProject({ title })) })
     );
+  } else {
+    JSON.parse(existing).projects.forEach((project) => projects.addProject(project));
+  }
+
+  if (selected == null) {
+    window.localStorage.setItem(SELECTED_PROJECT_KEY, projects.first());
+    projects.select(projects.first());
+  } else {
+    projects.select(selected);
   }
 
   renderLinks();
   renderMain();
-});
+}
+
+init();
