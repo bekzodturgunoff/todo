@@ -152,8 +152,8 @@ function init() {
   }
 
   if (selected == null) {
-    window.localStorage.setItem(SELECTED_PROJECT_KEY, projects.first());
-    projects.select(projects.first());
+    window.localStorage.setItem(SELECTED_PROJECT_KEY, projects.first().id);
+    projects.select(projects.first().id);
   } else {
     projects.select(selected);
   }
