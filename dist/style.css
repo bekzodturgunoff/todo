@@ -56,11 +56,7 @@ html {
   justify-content: space-between;
   margin: 20px;
   align-items: center;
-}
-.add-overview {
-  font-size: 18px;
-  color: var(--primary);
-  font-weight: 600;
+  color: #133452;
 }
 
 #addTodoBtn {
@@ -75,9 +71,7 @@ html {
 #addTodoBtn:hover {
   background-color: #f13b13;
 }
-.project-form {
-  margin: auto;
-}
+
 #project-btn {
   background: var(--primary);
   outline: none;
@@ -105,6 +99,14 @@ html {
   color: var(--primary);
   border: 1px solid var(--primarySecond);
   width: 80%;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+#project-form input:focus {
+  background-color: #fff;
+  border: 1px solid var(--primarySecond);
+  outline: none;
 }
 #project-form label {
   display: flex;
@@ -166,7 +168,7 @@ img {
 }
 
 #modal.open {
-  display: block;
+  display: flex;
 }
 
 #modal {
@@ -180,6 +182,9 @@ img {
   border-radius: 0.25rem;
   background-color: #fff;
   font-weight: 600;
+  width: 400px;
+  height: 450px;
+  justify-content: center;
 }
 
 #overlay {
@@ -199,67 +204,43 @@ img {
   gap: 10px;
   transition: 0.5 ease;
 }
-.overlay-add-a-todo {
-  text-align: center;
+
+.form-container {
+  width: 350px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 10px 8px;
+  background-color: #fdeeeb;
+  border: 1px solid #fdeeeb;
+  color: var(--primary);
+  border-radius: 6px;
+  font-size: 18px;
+  transition: 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.form-container input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+.overlay-heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  font-size: 24px;
+  color: #133452;
+  margin-bottom: 50px;
 }
 
 .overlay-close-btn {
-  width: 25px;
-  height: 25px;
-  background-color: var(--primary);
+  width: 30px;
   border: none;
-  font-size: 18px;
-  color: #fff;
-}
-
-#input-t {
-  background-color: #f8d8cc;
-  padding: 10px;
-  font-size: 16px;
-  color: var(--primary);
-  width: 80%;
-  border: 1px solid var(--primarySecond);
-}
-#input-t:focus {
   background-color: #fff;
-  padding: 10px;
-  font-size: 16px;
-  color: var(--primary);
-  border: 1px solid var(--primarySecond);
-  outline: none;
-}
-
-#overlay-date {
-  margin-top: 10px;
-  background-color: #f8d8cc;
-  padding: 10px;
-  font-size: 16px;
-  color: var(--primary);
-  width: 80%;
-  border: none;
-  outline: none;
-}
-
-#form p {
-  color: var(--primary);
-  margin-top: 20px;
-  padding-bottom: 5px;
-}
-.priority {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  text-align: center;
-}
-
-.add-todo {
-  margin-top: 10px;
-  border-radius: 5%;
-  width: 50px;
-  height: 30px;
-  border: none;
-  background-color: var(--primary);
-  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 #list {
@@ -273,7 +254,6 @@ img {
 #list li {
   display: flex;
   border-radius: 5px;
-
   transition: 0.3s ease;
   margin: 5px;
   padding: 30px;
@@ -284,6 +264,7 @@ img {
   border: 1px solid #fff;
   width: 90%;
   font-weight: 600;
+  color: #133452;
 }
 
 #list li:hover {
@@ -300,36 +281,9 @@ img {
   height: 40px;
 }
 
-.style-list-item div {
-  text-decoration: line-through;
-  color: var(--pColor);
+.priority {
+  display: flex;
 }
-
-.todo-del-btn {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: #f8d8cc;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 20px;
-  transition: 0.2s ease;
-  margin-left: auto;
-}
-
-.todo-del-btn:hover {
-  background-color: var(--primary);
-  color: #fff;
-}
-
-.important-checkbox {
-  width: 25px;
-  height: 20px;
-  cursor: pointer;
-  opacity: 0;
-}
-
 .priority input {
   opacity: 0;
   position: absolute;
@@ -340,8 +294,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
-  height: 30px;
+  width: 110px;
+  height: 40px;
   margin: 5px;
   border: 1px solid var(--pColor);
   border-radius: 5px;
@@ -354,8 +308,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
-  height: 30px;
+  width: 110px;
+  height: 40px;
   margin: 5px;
   border: 1px solid var(--pColor);
   border-radius: 5px;
@@ -367,8 +321,8 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;
-  height: 30px;
+  width: 110px;
+  height: 40px;
   margin: 5px;
   border: 1px solid var(--pColor);
   border-radius: 5px;
@@ -395,11 +349,17 @@ img {
   border-radius: 5px;
 }
 
-.important-label {
-  border-radius: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.452);
+.add-todo {
+  margin-top: 20px;
+  width: 130px;
+  height: 45px;
+  font-size: 17px;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
 }
-
 #project-input {
   display: none;
 }
