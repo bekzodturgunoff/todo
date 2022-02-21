@@ -270,7 +270,7 @@ img {
   gap: 20px;
 }
 
-#list-item {
+#list li {
   display: flex;
   border-radius: 5px;
 
@@ -286,9 +286,18 @@ img {
   font-weight: 600;
 }
 
-#list-item:hover {
+#list li:hover {
   border: 1px solid black;
   box-shadow: none;
+}
+
+.tools {
+  margin-left: auto;
+}
+
+.tools button {
+  width: 30px;
+  height: 40px;
 }
 
 .style-list-item div {

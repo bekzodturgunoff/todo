@@ -130,9 +130,17 @@ todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(e.target);
   const title = data.get("title");
+  const added_date = data.get("added_date");
+  const priority = data.get("priority");
   if (!title) return;
-
-  projects.getSelected().addTodo({ title });
+  if (priority === "high") {
+    console.log(`It's high`);
+  } else if (priority === "medium") {
+    console.log(`It's medium`);
+  } else if (priority === "low") {
+    console.log(`It's low`);
+  }
+  projects.getSelected().addTodo({ title, added_date, priority });
   renderMain();
   todoForm.reset();
   modal.classList.remove("open");
@@ -163,11 +171,22 @@ function renderMain() {
   const project = projects.getSelected();
   const heading = main.querySelector(".main-heading");
   heading.textContent = project.title;
-
   todoList.innerHTML = "";
   project.todos.forEach((todo) => {
     const item = document.createElement("li");
+    const date = document.createElement("p");
+    const priority = document.createElement("p");
+    const tools = document.createElement("div");
+    const checkBtn = document.createElement("button");
+    const deleteBtn = document.createElement("button");
+    tools.classList.add("tools");
     item.textContent = todo.title;
+    date.textContent = todo.added_date;
+    priority.textContent = todo.priority;
+    checkBtn.textContent = "check";
+    deleteBtn.textContent = "delete";
+    tools.append(checkBtn, deleteBtn);
+    item.append(date, priority, tools);
     todoList.append(item);
   });
 }
