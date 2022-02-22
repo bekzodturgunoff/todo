@@ -109,9 +109,10 @@ Project.prototype.removeTodo = function (id) {
   projects.saveProjects();
 };
 
-function Todo({ title, added_date, priority }) {
+function Todo({ title, added_date, time, priority }) {
   this.title = title;
   this.added_date = added_date;
+  this.time = time;
   this.priority = priority;
 }
 
@@ -131,10 +132,11 @@ todoForm.addEventListener("submit", (e) => {
   const data = new FormData(e.target);
   const title = data.get("title");
   const added_date = data.get("added_date");
+  const time = data.get("time");
   const priority = data.get("priority");
   if (!title) return;
 
-  projects.getSelected().addTodo({ title, added_date, priority });
+  projects.getSelected().addTodo({ title, added_date, time, priority });
   renderMain();
   todoForm.reset();
   modal.classList.remove("open");
@@ -169,6 +171,7 @@ function renderMain() {
   project.todos.forEach((todo) => {
     const item = document.createElement("li");
     const date = document.createElement("p");
+    const time = document.createElement("p");
     const priority = document.createElement("div");
     const tools = document.createElement("div");
     const checkBtn = document.createElement("input");
@@ -178,14 +181,16 @@ function renderMain() {
     checkBtn.type = "checkbox";
     checkBtn.classList.add("check-btn");
     deleteBtn.classList.add("delete-btn");
+    item.classList.add("todo.priority");
+    item.classList.add(todo.priority);
     item.textContent = todo.title;
     date.textContent = todo.added_date;
+    time.textContent = todo.time;
     priority.textContent = todo.priority;
     // checkBtn.innerHTML = `<i class="fa fa-solid fa-check"></i>`;
     deleteBtn.innerHTML = `<i class="fa fa-thin fa-trash"></i>`;
-
     tools.append(checkBtn, deleteBtn);
-    item.append(date, priority, tools);
+    item.append(date, time, priority, tools);
     todoList.append(item);
 
     if (priority.textContent === "High") {
@@ -203,6 +208,8 @@ function renderMain() {
         item.classList.remove("checked");
       }
     });
+
+    deleteBtn.addEventListener("click", (e) => {});
   });
 }
 
