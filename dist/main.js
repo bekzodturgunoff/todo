@@ -180,11 +180,13 @@ function renderMain() {
     const checkBtn = document.createElement("button");
     const deleteBtn = document.createElement("button");
     tools.classList.add("tools");
+    checkBtn.classList.add("check-btn");
+    deleteBtn.classList.add("delete-btn");
     item.textContent = todo.title;
     date.textContent = todo.added_date;
     priority.textContent = todo.priority;
-    checkBtn.textContent = "check";
-    deleteBtn.textContent = "delete";
+    checkBtn.innerHTML = `<i class="fa fa-solid fa-check"></i>`;
+    deleteBtn.innerHTML = `<i class="fa fa-thin fa-trash"></i>`;
     tools.append(checkBtn, deleteBtn);
     item.append(date, priority, tools);
     todoList.append(item);

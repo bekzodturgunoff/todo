@@ -94,13 +94,13 @@ html {
 }
 #project-form input {
   background-color: #f8d8cc;
-  padding: 5px;
   font-size: 16px;
   color: var(--primary);
   border: 1px solid var(--primarySecond);
   width: 80%;
   border-radius: 6px;
   transition: 0.2s ease;
+  padding: 10px;
 }
 
 #project-form input:focus {
@@ -239,7 +239,7 @@ img {
   width: 30px;
   border: none;
   background-color: #fff;
-  font-size: 22px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -274,13 +274,30 @@ img {
 
 .tools {
   margin-left: auto;
+  gap: 10px;
 }
 
 .tools button {
-  width: 30px;
-  height: 40px;
+  width: 40px;
+  height: 50px;
+  border: none;
+  margin: 5px;
+  font-size: 22px;
+  background-color: #fff;
+  border-radius: 6px;
 }
-
+.tools button:hover {
+  background-color: rgb(243, 243, 243);
+}
+.tools button:active {
+  background-color: rgb(235, 235, 235);
+}
+.check-btn {
+  color: #609d7b;
+}
+.delete-btn {
+  color: #f13b13;
+}
 .priority {
   display: flex;
 }
@@ -290,7 +307,7 @@ img {
   z-index: -1;
 }
 
-.priority input[value="high"] + label {
+.priority input[value="High"] + label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -304,7 +321,7 @@ img {
   transition: 0.2s ease;
 }
 
-.priority input[value="medium"] + label {
+.priority input[value="Medium"] + label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -317,7 +334,7 @@ img {
   color: var(--pColor);
   transition: 0.2s ease;
 }
-.priority input[value="low"] + label {
+.priority input[value="Low"] + label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -331,19 +348,19 @@ img {
   transition: 0.2s ease;
 }
 
-.priority input[value="high"]:checked + label {
+.priority input[value="High"]:checked + label {
   color: #f13b13;
   background-color: #f8d8cc;
   border-radius: 5px;
   border: 1px solid var(--primary);
 }
 
-.priority input[value="medium"]:checked + label {
+.priority input[value="Medium"]:checked + label {
   background-color: #faefb9;
   border-radius: 5px;
   color: rgb(122, 114, 53);
 }
-.priority input[value="low"]:checked + label {
+.priority input[value="Low"]:checked + label {
   color: #609d7b;
   background-color: #94bba5;
   border-radius: 5px;
