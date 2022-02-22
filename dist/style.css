@@ -122,7 +122,6 @@ html {
 
 .logo {
   font-size: 25px;
-  cursor: pointer;
   display: flex;
   font-weight: 600;
   user-select: none;
@@ -282,6 +281,25 @@ img {
   box-shadow: none;
 }
 
+.high {
+  background-color: #f13b13;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+.medium {
+  background-color: orange;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+.low {
+  background-color: rgb(153, 230, 39);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .tools {
   margin-left: auto;
   gap: 10px;
@@ -293,7 +311,7 @@ img {
   border: none;
   margin: 5px;
   font-size: 22px;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 6px;
   transition: 0.2s ease;
 }
@@ -308,6 +326,8 @@ img {
 }
 .delete-btn:hover {
   color: #f13b13;
+}
+.check-btn {
 }
 .priority {
   display: flex;
@@ -360,20 +380,20 @@ img {
 }
 
 .priority input[value="High"]:checked + label {
-  color: #f13b13;
-  background-color: #f8d8cc;
+  color: #fff;
+  background-color: #f13b13;
   border-radius: 5px;
   border: 1px solid var(--primary);
 }
 
 .priority input[value="Medium"]:checked + label {
-  background-color: #faefb9;
+  background-color: orange;
   border-radius: 5px;
-  color: rgb(122, 114, 53);
+  color: #fff;
 }
 .priority input[value="Low"]:checked + label {
-  color: #609d7b;
-  background-color: #94bba5;
+  color: #fff;
+  background-color: rgb(153, 230, 39);
   border-radius: 5px;
 }
 
@@ -395,6 +415,21 @@ img {
 #project-input .active {
   display: block;
   border: 1px solid black;
+}
+
+#list .checked {
+  color: #687d92;
+  text-decoration: line-through;
+  transition: 0.2s ease;
+}
+.checked .high {
+  background-color: #687d92;
+}
+.checked .medium {
+  background-color: #687d92;
+}
+.checked .low {
+  background-color: #687d92;
 }
 
 @media screen and (max-width: 700px) {

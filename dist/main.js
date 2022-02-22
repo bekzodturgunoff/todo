@@ -133,13 +133,7 @@ todoForm.addEventListener("submit", (e) => {
   const added_date = data.get("added_date");
   const priority = data.get("priority");
   if (!title) return;
-  if (priority === "high") {
-    console.log(`It's high`);
-  } else if (priority === "medium") {
-    console.log(`It's medium`);
-  } else if (priority === "low") {
-    console.log(`It's low`);
-  }
+
   projects.getSelected().addTodo({ title, added_date, priority });
   renderMain();
   todoForm.reset();
@@ -177,19 +171,38 @@ function renderMain() {
     const date = document.createElement("p");
     const priority = document.createElement("div");
     const tools = document.createElement("div");
-    const checkBtn = document.createElement("button");
+    const checkBtn = document.createElement("input");
     const deleteBtn = document.createElement("button");
+
     tools.classList.add("tools");
+    checkBtn.type = "checkbox";
     checkBtn.classList.add("check-btn");
     deleteBtn.classList.add("delete-btn");
     item.textContent = todo.title;
     date.textContent = todo.added_date;
     priority.textContent = todo.priority;
-    checkBtn.innerHTML = `<i class="fa fa-solid fa-check"></i>`;
+    // checkBtn.innerHTML = `<i class="fa fa-solid fa-check"></i>`;
     deleteBtn.innerHTML = `<i class="fa fa-thin fa-trash"></i>`;
+
     tools.append(checkBtn, deleteBtn);
     item.append(date, priority, tools);
     todoList.append(item);
+
+    if (priority.textContent === "High") {
+      priority.classList.add("high");
+    } else if (priority.textContent === "Medium") {
+      priority.classList.add("medium");
+    } else if (priority.textContent === "Low") {
+      priority.classList.add("low");
+    }
+
+    checkBtn.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        item.classList.add("checked");
+      } else {
+        item.classList.remove("checked");
+      }
+    });
   });
 }
 
