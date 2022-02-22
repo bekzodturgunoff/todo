@@ -234,10 +234,10 @@ img {
 .overlay-heading {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
   font-size: 24px;
   color: #133452;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .overlay-close-btn {
