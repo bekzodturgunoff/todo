@@ -175,7 +175,7 @@ function renderMain() {
   project.todos.forEach((todo) => {
     const item = document.createElement("li");
     const date = document.createElement("p");
-    const priority = document.createElement("p");
+    const priority = document.createElement("div");
     const tools = document.createElement("div");
     const checkBtn = document.createElement("button");
     const deleteBtn = document.createElement("button");

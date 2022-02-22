@@ -42,6 +42,7 @@ html {
   width: 100%;
   border: none;
   font-weight: 600;
+  user-select: none;
 }
 .search:focus {
   background-color: #fff;
@@ -57,6 +58,7 @@ html {
   margin: 20px;
   align-items: center;
   color: #133452;
+  user-select: none;
 }
 
 #addTodoBtn {
@@ -84,6 +86,7 @@ html {
   font-size: 24px;
   cursor: pointer;
   margin: auto;
+  user-select: none;
 }
 
 #project-form {
@@ -122,6 +125,7 @@ html {
   cursor: pointer;
   display: flex;
   font-weight: 600;
+  user-select: none;
 }
 
 .logo a {
@@ -137,6 +141,7 @@ html {
   list-style-type: none;
   height: 100%;
   margin-top: 32px;
+  user-select: none;
 }
 
 .links li {
@@ -174,7 +179,7 @@ img {
 #modal {
   display: none;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid var(--pColor);
@@ -185,6 +190,7 @@ img {
   width: 400px;
   height: 450px;
   justify-content: center;
+  user-select: none;
 }
 
 #overlay {
@@ -239,8 +245,12 @@ img {
   width: 30px;
   border: none;
   background-color: #fff;
-  font-size: 25px;
+  font-size: 27px;
   cursor: pointer;
+  transition: 0.1s ease;
+}
+.overlay-close-btn:hover {
+  color: #f13b13;
 }
 
 #list {
@@ -285,6 +295,7 @@ img {
   font-size: 22px;
   background-color: #fff;
   border-radius: 6px;
+  transition: 0.2s ease;
 }
 .tools button:hover {
   background-color: rgb(243, 243, 243);
@@ -292,10 +303,10 @@ img {
 .tools button:active {
   background-color: rgb(235, 235, 235);
 }
-.check-btn {
+.check-btn:hover {
   color: #609d7b;
 }
-.delete-btn {
+.delete-btn:hover {
   color: #f13b13;
 }
 .priority {
