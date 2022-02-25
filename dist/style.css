@@ -315,20 +315,43 @@ img {
   border-radius: 6px;
   transition: 0.2s ease;
 }
+.tools input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 .tools button:hover {
   background-color: rgb(243, 243, 243);
 }
 .tools button:active {
   background-color: rgb(235, 235, 235);
 }
-.check-btn:hover {
+.tools label:hover {
+  background-color: rgb(243, 243, 243);
+}
+.tools label:active {
+  background-color: rgb(235, 235, 235);
+}
+
+.check-label {
+  padding: 10px;
+  border: none;
+  margin: 5px;
+  font-size: 22px;
+  background-color: transparent;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.check-label:hover {
   color: #609d7b;
 }
 .delete-btn:hover {
   color: #f13b13;
 }
-.check-btn {
-}
+
 .priority {
   display: flex;
 }
@@ -396,46 +419,7 @@ img {
   background-color: rgb(153, 230, 39);
   border-radius: 5px;
 }
-.priority input[value="High"] + label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 110px;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid var(--pColor);
-  border-radius: 5px;
-  cursor: pointer;
-  color: var(--pColor);
-  transition: 0.2s ease;
-}
 
-.priority input[value="Medium"] + label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 110px;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid var(--pColor);
-  border-radius: 5px;
-  cursor: pointer;
-  color: var(--pColor);
-  transition: 0.2s ease;
-}
-.todo .priority [value="Low"] + label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 110px;
-  height: 40px;
-  margin: 5px;
-  border: 1px solid var(--pColor);
-  border-radius: 5px;
-  cursor: pointer;
-  color: var(--pColor);
-  transition: 0.2s ease;
-}
 .add-todo {
   margin-top: 20px;
   width: 130px;

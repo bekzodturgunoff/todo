@@ -176,10 +176,11 @@ function renderMain() {
     const tools = document.createElement("div");
     const checkBtn = document.createElement("input");
     const deleteBtn = document.createElement("button");
+    const checkboxLabel = document.createElement("label");
 
     tools.classList.add("tools");
     checkBtn.type = "checkbox";
-    checkBtn.classList.add("check-btn");
+    checkboxLabel.classList.add("check-label");
     deleteBtn.classList.add("delete-btn");
     item.classList.add("todo.priority");
     item.classList.add(todo.priority);
@@ -187,9 +188,10 @@ function renderMain() {
     date.textContent = todo.added_date;
     time.textContent = todo.time;
     priority.textContent = todo.priority;
-    // checkBtn.innerHTML = `<i class="fa fa-solid fa-check"></i>`;
+    checkboxLabel.innerHTML = `<i class="fa fa-solid fa-check"></i>`;
     deleteBtn.innerHTML = `<i class="fa fa-thin fa-trash"></i>`;
-    tools.append(checkBtn, deleteBtn);
+    checkboxLabel.append(checkBtn);
+    tools.append(checkboxLabel, deleteBtn);
     item.append(date, time, priority, tools);
     todoList.append(item);
 
