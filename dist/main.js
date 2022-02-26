@@ -108,7 +108,7 @@ Project.prototype.removeTodo = function (id) {
   this.todos = this.todos.filter((todo) => todo.id !== id);
   projects.saveProjects();
 };
-
+console.log(Project.prototype.removeTodo);
 function Todo({ title, added_date, time, priority }) {
   this.title = title;
   this.added_date = added_date;
@@ -163,6 +163,12 @@ function renderLinks() {
   });
 }
 
+// function removeTask(index) {
+//   todos.splice(index, 1);
+//   window.localStorage.setItem(TODO_KEY, JSON.stringify(todos));
+//   render();
+// }
+
 function renderMain() {
   const project = projects.getSelected();
   const heading = main.querySelector(".main-heading");
@@ -211,7 +217,7 @@ function renderMain() {
       }
     });
 
-    deleteBtn.addEventListener("click", (e) => {});
+    deleteBtn.addEventListener("click", (e) => Project.prototype.removeTodo);
   });
 }
 

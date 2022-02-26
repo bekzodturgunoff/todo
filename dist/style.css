@@ -172,13 +172,17 @@ img {
 }
 
 #modal.open {
-  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #modal {
-  display: none;
+  display: flex;
   position: absolute;
-  top: 40%;
+  top: -50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid var(--pColor);
@@ -190,6 +194,10 @@ img {
   height: 500px;
   justify-content: center;
   user-select: none;
+  opacity: 1;
+  transition: opacity 350ms ease-in-out;
+  transition: top 350ms ease-in-out;
+  pointer-events: none;
 }
 
 #overlay {
@@ -263,7 +271,6 @@ img {
 #list li {
   display: flex;
   border-radius: 5px;
-  transition: 0.3s ease;
   margin: 5px;
   padding: 30px;
   gap: 20px;
@@ -348,6 +355,7 @@ img {
 .check-label:hover {
   color: #609d7b;
 }
+
 .delete-btn:hover {
   color: #f13b13;
 }
@@ -431,19 +439,10 @@ img {
   border-radius: 6px;
   cursor: pointer;
 }
-#project-input {
-  display: none;
-}
-
-#project-input .active {
-  display: block;
-  border: 1px solid black;
-}
 
 #list .checked {
   color: #687d92;
   text-decoration: line-through;
-  transition: 0.2s ease;
 }
 .checked .high {
   background-color: #687d92;
